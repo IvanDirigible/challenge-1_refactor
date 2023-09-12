@@ -56,16 +56,6 @@ p {
     background-position: center;
 }
 
-/* .float-left {
-    float: left;
-    margin-right: 25px;
-}
-
-.float-right {
-    float: right;
-    margin-left: 25px;
-} */
-
 /* Replaced content class tag with main semantic tag. */
 main {
     width: 75%;
@@ -120,12 +110,17 @@ section {
 
 section img {
     max-height: 200px;
-    max-width: auto;
+    max-width: 300px;
 }
 
 section h2 {
     margin-bottom: 20px;
     font-size: 36px;
+}
+
+/* Replaced float-left and float-right with .gap. */
+.gap {
+    margin-right: 25px;
 }
 
 /* Replaced footer class with semantic element tag. */
@@ -140,18 +135,37 @@ footer h2 {
     font-size: 20px;
 }
 
-@media screen and (max-width: 768px) {
-    aside {
-      flex-direction: row;
-      float: none;
-      width: auto;
-    }
-  }
-
+/* Added scaling and rearranging features based on window and/or device size. */
   @media screen and (max-width: 972px) {
     section {
       flex-direction: column;
       height: auto;
       width: auto;
+    }
+    figure img {
+        max-height: auto;
+        max-width: auto;
+    }
+    section:has(article.gap) {
+        flex-direction: column-reverse;
+    }
+    #hero {
+        height: 700px;
+    }
+  }
+
+  @media screen and (max-width: 815px) {
+    aside {
+      flex-direction: row;
+      float: none;
+      width: auto;
+      margin-right: 0px;
+    }
+    main {
+        width: 100%;
+        margin-left: 0px;
+    }
+    #hero {
+        height: 400px;
     }
   }
